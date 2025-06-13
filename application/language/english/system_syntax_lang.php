@@ -1677,6 +1677,7 @@ $lang['emergency_contact_name'] = 'Emergency Contact Name';
 $lang['emergency_contact_number'] = 'Emergency Contact Number';
 $lang['profile_photo'] = 'Profile Photo';
 $lang['register_patient'] = 'Register Patient';
+$lang['register_doctor'] = 'Register Doctor';
 
 $lang['new_appointment'] = 'New Appointment';
 $lang['appointment_booking_form'] = 'Appointment Booking Form';
