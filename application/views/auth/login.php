@@ -7,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?php echo lang('login'); ?> - <?php echo $this->db->get('settings')->row()->system_vendor; ?></title>
 
-  <!-- Google Font: Source Sans Pro -->
+  <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="adminlte/plugins/flag-icon-css/css/flag-icon.min.css">
@@ -130,8 +131,28 @@
 
 
         <style>
-          .card {
-            display: block;
+          body.login-page {
+            background: linear-gradient(135deg, #71b7e6 0%, #9b59b6 100%);
+            font-family: 'Poppins', sans-serif;
+          }
+
+          .login-logo a {
+            color: #ffffff;
+          }
+
+          .login-box, .login-card-body, .card {
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          }
+
+          .btn-primary {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+          }
+
+          .btn-primary:hover {
+            background-color: #563d7c;
+            border-color: #563d7c;
           }
         </style>
 
