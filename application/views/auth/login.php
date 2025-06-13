@@ -165,6 +165,9 @@
         <p class="mb-0 text-center">
           <a data-toggle="modal" href="#myModal"><?php echo lang('forgot_your_password') ?>?</a>
         </p>
+        <p class="mb-0 text-center mt-2">
+          <a href="doctor/addNewView"><?php echo lang('doctor_registration_form'); ?></a>
+        </p>
       </div>
       <!-- /.login-card-body -->
     </div>
