@@ -110,9 +110,7 @@
 
       <div class="card-body login-card-body">
         <p class="login-box-msg"><?php echo lang('Sign in to start your session') ?></p>
-        <p class="login-box-msg"><?php echo lang('Sign in to start your session') ?></p>
-
-
+        
         <?php if (!empty($message)) { ?>
           <div class="card card-danger">
             <div class="card-header">
@@ -172,6 +170,36 @@
   </div>
   <!-- /.login-box -->
 
+        < estilo >
+          . tarjeta {
+ 
+            pantalla: bloque;
+          cuerpo . login - página {
+ 
+            Fondo: gradiente lineal ( 135 grados, # 71 b7e6 0 %, # 9 b59b6 100 %);
+            familia de fuentes: 'Poppins' , sans-serif;
+          }
+
+          .login-logo a {
+            color: #ffffff;
+          }
+
+          .login-box, .login-card-body, .card {
+            radio del borde: 10 px;
+            caja-sombra: 0 10 px 20 px rgba ( 0 , 0 , 0 , 0.2 );
+ 
+          }
+
+          .btn-primario {
+            color de fondo: #6f42c1;
+            color del borde: #6f42c1;
+          }
+
+          .btn-primary:hover {
+            color de fondo: #563d7c;
+            color del borde: #563d7c;
+          }
+        </estilo>
 
 
 
