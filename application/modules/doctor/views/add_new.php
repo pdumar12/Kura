@@ -107,7 +107,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-12 mb-4">
+                                    <div class="col-md-6 mb-4">
                                         <div class="form-group">
                                             <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('address'); ?> <span class="text-danger">*</span></label>
                                             <input type="text" class="form-control form-control-lg shadow-sm" name="address" value='<?php
@@ -117,7 +117,35 @@
                                                                                                                                     if (!empty($doctor->address)) {
                                                                                                                                         echo $doctor->address;
                                                                                                                                     }
-                                                                                                                                    ?>' required>
+                                                    ?>' required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('country_of_practice'); ?> <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control form-control-lg shadow-sm" name="country_of_practice" value='<?php
+                                                    if (!empty($setval)) {
+                                                        echo set_value('country_of_practice');
+                                                    }
+                                                    if (!empty($doctor->country_of_practice)) {
+                                                        echo $doctor->country_of_practice;
+                                                    }
+                                                    ?>' required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('city_of_practice'); ?> <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control form-control-lg shadow-sm" name="city_of_practice" value='<?php
+                                                    if (!empty($setval)) {
+                                                        echo set_value('city_of_practice');
+                                                    }
+                                                    if (!empty($doctor->city_of_practice)) {
+                                                        echo $doctor->city_of_practice;
+                                                    }
+                                                    ?>' required>
                                         </div>
                                     </div>
 
@@ -191,6 +219,66 @@
                                             <?php if (!empty($doctor->signature)) { ?>
                                                 <div class="mt-3">
                                                     <img src="<?php echo $doctor->signature; ?>" class="img-thumbnail" height="100px">
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('university_diploma'); ?></label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="university_diploma" id="customFileDiploma">
+                                                <label class="custom-file-label" for="customFileDiploma"><?php echo lang('choose_file'); ?></label>
+                                            </div>
+                                            <?php if (!empty($doctor->university_diploma)) { ?>
+                                                <div class="mt-3">
+                                                    <a href="<?php echo $doctor->university_diploma; ?>" target="_blank"><?php echo lang('view'); ?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('professional_id_photo'); ?></label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="professional_id_photo" id="customFileId">
+                                                <label class="custom-file-label" for="customFileId"><?php echo lang('choose_file'); ?></label>
+                                            </div>
+                                            <?php if (!empty($doctor->professional_id_photo)) { ?>
+                                                <div class="mt-3">
+                                                    <a href="<?php echo $doctor->professional_id_photo; ?>" target="_blank"><?php echo lang('view'); ?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('professional_card'); ?></label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="professional_card" id="customFileCard">
+                                                <label class="custom-file-label" for="customFileCard"><?php echo lang('choose_file'); ?></label>
+                                            </div>
+                                            <?php if (!empty($doctor->professional_card)) { ?>
+                                                <div class="mt-3">
+                                                    <a href="<?php echo $doctor->professional_card; ?>" target="_blank"><?php echo lang('view'); ?></a>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-group">
+                                            <label class="text-uppercase font-weight-bold text-muted"><?php echo lang('medical_registration'); ?></label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" name="medical_registration" id="customFileReg">
+                                                <label class="custom-file-label" for="customFileReg"><?php echo lang('choose_file'); ?></label>
+                                            </div>
+                                            <?php if (!empty($doctor->medical_registration)) { ?>
+                                                <div class="mt-3">
+                                                    <a href="<?php echo $doctor->medical_registration; ?>" target="_blank"><?php echo lang('view'); ?></a>
                                                 </div>
                                             <?php } ?>
                                         </div>

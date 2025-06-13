@@ -67,6 +67,8 @@ class Doctor extends MX_Controller
         $department = $this->input->post('department');
         $department_details = $this->department_model->getDepartmentById($department);
         $profile = $this->input->post('profile');
+        $country_of_practice = $this->input->post('country_of_practice');
+        $city_of_practice = $this->input->post('city_of_practice');
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -149,86 +151,47 @@ class Doctor extends MX_Controller
                 'max_width' => "2024"
             );
 
-            $this->load->library('Upload', $config);
+            $this->load->library('Upload');
+            $img_url = '';
+            $signature = '';
             $this->upload->initialize($config);
-
             if ($this->upload->do_upload('img_url')) {
                 $path = $this->upload->data();
-                $img_url = "uploads/" . $path['file_name'];
+                $img_url = 'uploads/' . $path['file_name'];
+            }
+            $this->upload->initialize($config1);
+            if ($this->upload->do_upload('signature')) {
+                $path1 = $this->upload->data();
+                $signature = 'uploads/' . $path1['file_name'];
+            }
 
-                $this->load->library('Upload', $config1);
-                $this->upload->initialize($config1);
-                if ($this->upload->do_upload('signature')) {
-                    $path1 = $this->upload->data();
-                    $signature = "uploads/" . $path1['file_name'];
-                    $data = array();
-                    $data = array(
-                        'img_url' => $img_url,
-                        'name' => $name,
-                        'email' => $email,
-                        'address' => $address,
-                        'phone' => $phone,
-                        'department' => $department,
-                        'department_name' => $department_details->name,
-                        'profile' => $profile,
-                        'signature' => $signature,
-                        'appointment_confirmation' => 'Active',
+            $university_diploma = $this->upload_document('university_diploma');
+            $professional_id_photo = $this->upload_document('professional_id_photo');
+            $professional_card = $this->upload_document('professional_card');
+            $medical_registration = $this->upload_document('medical_registration');
 
-                    );
-                } else {
-                    $data = array();
-                    $data = array(
-                        'img_url' => $img_url,
-                        'name' => $name,
-                        'email' => $email,
-                        'address' => $address,
-                        'phone' => $phone,
-                        'department' => $department,
-                        'department_name' => $department_details->name,
-                        'profile' => $profile,
+            $data = array(
+                'name' => $name,
+                'email' => $email,
+                'address' => $address,
+                'phone' => $phone,
+                'department' => $department,
+                'department_name' => $department_details->name,
+                'profile' => $profile,
+                'appointment_confirmation' => 'Active',
+                'country_of_practice' => $country_of_practice,
+                'city_of_practice' => $city_of_practice,
+                'university_diploma' => $university_diploma,
+                'professional_id_photo' => $professional_id_photo,
+                'professional_card' => $professional_card,
+                'medical_registration' => $medical_registration,
+            );
 
-                        'appointment_confirmation' => 'Active',
-
-                    );
-                }
-            } else {
-                $this->load->library('Upload', $config1);
-                $this->upload->initialize($config1);
-
-                if ($this->upload->do_upload('signature')) {
-                    $path1 = $this->upload->data();
-                    $signature = "uploads/" . $path1['file_name'];
-
-                    $data = array();
-                    $data = array(
-
-                        'name' => $name,
-                        'email' => $email,
-                        'address' => $address,
-                        'phone' => $phone,
-                        'department' => $department,
-                        'department_name' => $department_details->name,
-                        'profile' => $profile,
-                        'signature' => $signature,
-                        'appointment_confirmation' => 'Active',
-
-                    );
-                } else {
-
-                    $data = array();
-                    $data = array(
-                        'name' => $name,
-                        'email' => $email,
-                        'address' => $address,
-                        'phone' => $phone,
-                        'department' => $department,
-                        'profile' => $profile,
-                        'department_name' => $department_details->name,
-
-                        'appointment_confirmation' => 'Active',
-
-                    );
-                }
+            if (!empty($img_url)) {
+                $data['img_url'] = $img_url;
+            }
+            if (!empty($signature)) {
+                $data['signature'] = $signature;
             }
             $username = $this->input->post('name');
             if (empty($id)) {     // Adding New Doctor
@@ -709,6 +672,41 @@ class Doctor extends MX_Controller
         $data['response'] = $option;
         $data['visit_description'] = $option;
         echo json_encode($data);
+    }
+
+    private function upload_document($field)
+    {
+        if (empty($_FILES[$field]['name'])) {
+            return '';
+        }
+        $file_name = $_FILES[$field]['name'];
+        $file_name_pieces = explode('_', $file_name);
+        $new_file_name = '';
+        $count = 1;
+        foreach ($file_name_pieces as $piece) {
+            if ($count !== 1) {
+                $piece = ucfirst($piece);
+            }
+            $new_file_name .= $piece;
+            $count++;
+        }
+
+        $config = array(
+            'file_name' => $new_file_name,
+            'upload_path' => './uploads/',
+            'allowed_types' => 'gif|jpg|png|jpeg|pdf',
+            'overwrite' => False,
+            'max_size' => '20480000',
+            'max_height' => '1768',
+            'max_width' => '2024',
+        );
+        $this->load->library('Upload', $config);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload($field)) {
+            $path = $this->upload->data();
+            return 'uploads/' . $path['file_name'];
+        }
+        return '';
     }
 
     public function updateAvailability()
