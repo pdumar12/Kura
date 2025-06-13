@@ -110,6 +110,7 @@
 
       <div class="card-body login-card-body">
         <p class="login-box-msg"><?php echo lang('Sign in to start your session') ?></p>
+        <p class="login-box-msg"><?php echo lang('Sign in to start your session') ?></p>
 
 
         <?php if (!empty($message)) { ?>
