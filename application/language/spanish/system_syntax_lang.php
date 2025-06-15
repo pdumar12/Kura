@@ -1812,6 +1812,7 @@ $lang['emergency_contact_name'] = 'Nombre de Contacto de Emergencia';
 $lang['emergency_contact_number'] = 'Número de Contacto de Emergencia';
 $lang['profile_photo'] = 'Foto de Perfil';
 $lang['register_patient'] = 'Registrar Paciente';
+$lang['register_doctor'] = 'Registrar Doctor';
 
 $lang['new_appointment'] = 'Nueva Cita';
 $lang['appointment_booking_form'] = 'Formulario de Reserva de Cita';
