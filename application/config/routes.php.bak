@@ -8,7 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | This file lets you re-map URI requests to specific controller functions.
 |
 | Typically there is a one-to-one relationship between a URL string
-| and its corresponding controller class/method. The segments in a 
+| and its corresponding controller class/method. The segments in a
 | URL normally follow this pattern:
 |
 |	example.com/class/method/id/
@@ -52,7 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'frontend';
 $route['transactionLogs'] = 'logs/transactionLogs';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE; 
-//$route['site/(?!(?:gallery|gallery/editGalleryByJason|gallery/addNew|gallery/delete|slide|service|gridsection|settings|featured|review|slide/addNew|service/addNew|update|gridsection/addNew|featured/addNew|review/addNew|gallery/delete|slide/delete|service/delete|gridsection/delete|featured/delete|review/delete|getAvailableSlotByDoctorByDateByJason|getDoctorVisitCharges|getAvailableSlotByDoctorByDateByJason|getAvailableSlotByDoctorByDateByJason|getDoctorVisit|addNew|web|slide/editSlideByJason|featured/editFeaturedByJason|service/editServiceByJason|gridsection/editGridsectionByJason|review/editReviewByJason)$)(.+)$'] = 'site/index/(:any)';
-//$route['site/(?!(?:gallery/delete|slide/delete|service/delete|gridsection/delete|featured/delete|review/delete)$)(.+)$'] = 'site/index/(:any)'; 
+$route['translate_uri_dashes'] = FALSE;
+$route['site/(?!(?:gallery|gallery/editGalleryByJason|gallery/addNew|gallery/delete|slide|service|gridsection|settings|featured|review|slide/addNew|service/addNew|update|gridsection/addNew|featured/addNew|review/addNew|gallery/delete|slide/delete|service/delete|gridsection/delete|featured/delete|review/delete|getAvailableSlotByDoctorByDateByJason|getDoctorVisitCharges|getAvailableSlotByDoctorByDateByJason|getAvailableSlotByDoctorByDateByJason|getDoctorVisit|addNew|web|slide/editSlideByJason|featured/editFeaturedByJason|service/editServiceByJason|gridsection/editGridsectionByJason|review/editReviewByJason)$)(.+)$'] = 'site/index/(:any)';
+//$route['site/(?!(?:gallery/delete|slide/delete|service/delete|gridsection/delete|featured/delete|review/delete)$)(.+)$'] = 'site/index/(:any)';
 //$route['site/(?!(?:slide|slide/addNew|slide/delete)$)(.+)$']='site/(:any)';
